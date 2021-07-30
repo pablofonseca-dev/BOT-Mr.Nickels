@@ -1,1 +1,1 @@
-"# typescript-bot.js" 
+# typescript-bot.js
