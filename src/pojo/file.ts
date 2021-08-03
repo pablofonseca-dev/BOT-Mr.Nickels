@@ -1,45 +1,17 @@
-class File{
-    private _name : string;
-    private _extension : string; 
-    private _location: Directory | undefined;
-    private _status: string | undefined; 
+import { SystemResourcePath } from "./system_resource";
+import fs from 'fs';
+import { Directory } from "./directory";
 
-    constructor(name: string, extension: string, location?: Directory, status?: string){
-        this._name = name; 
-        this._extension = extension;
-        this._location = location; 
-        this._status = status; 
-    }
+export class File extends SystemResourcePath {
+    public file_extension: String;
 
-    get name(): string{
-        return this._name; 
-    }
+    constructor(
+        resource_name: String,
+        resource_location: Directory,
+        file_extension: String,
+        resource_status?: fs.Stats) {
 
-    get extension(): string{
-        return this._extension;
-    }
-
-    get location(): Directory | undefined{
-        return this._location;
-    }
-
-    get status(): string | undefined{
-        return this._status; 
-    }
-
-    set name(name: string){
-        this._name = name;
-    }
-
-    set extension(extension: string){
-        this._extension = extension;
-    }
-
-    set location(location: Directory | undefined){
-        this._location =  location;
-    }
-
-    set status(status: string | undefined){
-        this._status = status; 
+        super(resource_name, resource_location, resource_status);
+        this.file_extension = file_extension;
     }
 }
